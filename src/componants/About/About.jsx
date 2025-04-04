@@ -1,7 +1,7 @@
 import React from "react";
 import AboutBannerImg from "../../assets/image/aboutBannerimg.png";
 import { Link } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
+
 import { GoArrowRight } from "react-icons/go";
 
 function About() {

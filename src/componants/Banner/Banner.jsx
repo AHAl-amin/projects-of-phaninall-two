@@ -1,7 +1,7 @@
 import React from 'react'
-import BackgroundImg from "../../assets/image/BannerImg.png"
+// import BackgroundImg from "../../assets/image/BannerImg.png"
 import BannerImgOne from "../../assets/image/Bannerimg.png"
-import { GiSparkles } from 'react-icons/gi'
+// import { GiSparkles } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 
 function Banner() {
