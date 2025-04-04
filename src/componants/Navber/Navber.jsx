@@ -1,62 +1,146 @@
 
-import React, { useState } from 'react'
-import LogoImage from "../../assets/image/Logoimg.png"
-import MicrophonImage from "../../assets/image/microphon.png"
+// import React, { useEffect, useState } from 'react'
+// import LogoImage from "../../assets/image/Logoimg.png"
+// import MicrophonImage from "../../assets/image/microphon.png"
+// import { Link } from 'react-router-dom';
+
+// function Navber() {
+
+//     const [isOpen, setIsOpen] = useState(false);
+//     const [scrolled, setScrolled] = useState(false);
+
+//     useEffect(() => {
+//         const handleScroll = () => {
+//             if (window.scrollY > 50) {
+//                 setScrolled(true);
+//             } else {
+//                 setScrolled(false);
+//             }
+//         };
+
+//         window.addEventListener("scroll", handleScroll);
+//         return () => {
+//             window.removeEventListener("scroll", handleScroll);
+//         };
+//     }, []);
+//     return (
+
+
+//        <div className='w-full  z-50 fixed py-8'>
+//          <div className="flex sm:justify-between max-w-[80%] mx-auto font-lora  absulote"> 
+//             <div className='flex flex-row-reverse gap-3'>
+//                 <div><img src={LogoImage} alt="" /></div>
+
+//                 {/* Mobile menu button */}
+
+
+//                 <div className="md:hidden ">
+//                     <button onClick={() => setIsOpen(!isOpen)}>
+//                         {isOpen ? "✖" : "☰"}
+//                     </button>
+//                 </div>
+//             </div>
+
+//             <div
+//                 className={`absolute top-16 left-0 rounded-lg  text-center  transition-all duration-300 md:static md:w-auto md:bg-transparent md:flex md:items-center md:gap-6 w-1/3 ${isOpen ? "block" : "hidden"
+//                     }`}
+//             >
+
+
+//                 <ul className='flex md:flex-row flex-col gap-10 text-[#1A0E05]   '>
+
+//                     <Link className=' rounded'>Home</Link>
+//                     <Link className='rounded '>About Us</Link>
+//                     <Link className=' rounded'>Our Services</Link>
+//                     <Link className=' rounded'>Capability Statement</Link>
+//                     <Link className=' rounded'>Careers </Link>
+//                     <Link className=' rounded'>Contact Us </Link>
+//                 </ul>
+//             </div>
+//             <div className='flex gap-2 text-[#1A0E05]'>
+//                 <div>
+//                     <img className='text-[#1A0E05]' src={MicrophonImage} alt="" />
+//                 </div>
+//                 <p className=' h-[12px]'>+1 636-244-3219</p>
+//             </div>
+//         </div>
+//        </div>
+
+
+
+
+
+
+
+//     )
+// }
+
+// export default Navber
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import LogoImage from "../../assets/image/Logoimg.png";
+import MicrophonImage from "../../assets/image/microphon.png";
 import { Link } from 'react-router-dom';
 
-function Navber() {
-
+function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
+        <div className={`w-full z-50 fixed py-4 transition-all duration-1000 ${scrolled ? "bg-gray-500 shadow-md" : "bg-transparent"}`}>
+            <div className="flex sm:justify-between max-w-[80%] mx-auto font-lora">
+                <div className='flex flex-row-reverse gap-3'>
+                    <div><img src={LogoImage} alt="Logo" /></div>
 
-
-       <div className='w-full  z-50 fixed py-8'>
-         <div className="flex sm:justify-between max-w-[80%] mx-auto font-lora  absulote"> 
-            <div className='flex flex-row-reverse gap-3'>
-                <div><img src={LogoImage} alt="" /></div>
-
-                {/* Mobile menu button */}
-
-
-                <div className="md:hidden ">
-                    <button onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? "✖" : "☰"}
-                    </button>
+                    {/* Mobile menu button */}
+                    <div className="md:hidden">
+                        <button onClick={() => setIsOpen(!isOpen)}>
+                            {isOpen ? "✖" : "☰"}
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div
-                className={`absolute top-16 left-0 rounded-lg  text-center  transition-all duration-300 md:static md:w-auto md:bg-transparent md:flex md:items-center md:gap-6 w-1/3 ${isOpen ? "block" : "hidden"
-                    }`}
-            >
-
-
-                <ul className='flex md:flex-row flex-col gap-10 text-[#1A0E05]   '>
-
-                    <Link className=' rounded'>Home</Link>
-                    <Link className='rounded '>About Us</Link>
-                    <Link className=' rounded'>Our Services</Link>
-                    <Link className=' rounded'>Capability Statement</Link>
-                    <Link className=' rounded'>Careers </Link>
-                    <Link className=' rounded'>Contact Us </Link>
-                </ul>
-            </div>
-            <div className='flex gap-2 text-[#1A0E05]'>
-                <div>
-                    <img className='text-[#1A0E05]' src={MicrophonImage} alt="" />
+                <div
+                    className={`absolute top-16 left-0 rounded-lg text-center transition-all duration-300 md:static md:w-auto md:bg-transparent md:flex md:items-center md:gap-6 w-1/3 ${isOpen ? "block" : "hidden"
+                        }`}
+                >
+                    <ul className='flex md:flex-row flex-col gap-10 text-[#1A0E05]'>
+                        <Link className='rounded'>Home</Link>
+                        <Link className='rounded'>About Us</Link>
+                        <Link className='rounded'>Our Services</Link>
+                        <Link className='rounded'>Capability Statement</Link>
+                        <Link className='rounded'>Careers</Link>
+                        <Link className='rounded'>Contact Us</Link>
+                    </ul>
                 </div>
-                <p className=' h-[12px]'>+1 636-244-3219</p>
+
+                <div className='flex gap-2 text-[#1A0E05]'>
+                    <div>
+                        <img className='text-[#1A0E05]' src={MicrophonImage} alt="Microphone" />
+                    </div>
+                    <p className='h-[12px]'>+1 636-244-3219</p>
+                </div>
             </div>
         </div>
-       </div>
-
-
-
-
-
-
-
-    )
+    );
 }
 
-export default Navber
+export default Navbar;
